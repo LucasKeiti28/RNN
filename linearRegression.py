@@ -16,4 +16,27 @@ class RegModel:
 modelo = RegModel()
 modelo(20)
 
-print(modelo(20))
+# Defining the true values to Weights and Bias
+TRUE_W = 3.0
+TRUE_b = 0.5
+
+# Number of examples
+NUM_EXAMPLES = 1000
+
+# Generate x values
+X = tf.random.normal(shape = (NUM_EXAMPLES,))
+
+# Generate noise
+noise = tf.random.normal(shape=(NUM_EXAMPLES,))
+
+# Generate the true value of y
+y = X * TRUE_W + TRUE_b + noise
+
+# Plotting Real Values
+plt.scatter(X,y,label="Valor Real")
+
+# Plotting Predicted Values
+plt.scatter(X, modelo(X), label="Valor Previsto")
+
+plt.legend()
+plt.show()
