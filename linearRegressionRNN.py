@@ -45,13 +45,13 @@ def train(modelo, X, y, lr=0.01):
 # Creating Model Instance
 modelo = RegModel()
 
-# Definimos listas vazias para W e b
+# Defining empty lists to receive Weights and Bias
 Ws, bs = [], []
 
-# Número de épocas (quantas vezes o modelo vai passar pelos dados)
+# Epochs how many times the model will pass through the data
 epochs = 20
 
-# Treinamento
+# Trainning
 print("\n")
 for epoch in range(epochs):
     Ws.append(modelo.W.numpy()) 
@@ -69,10 +69,10 @@ plt.plot([TRUE_W] * epochs, 'r--', [TRUE_b] * epochs, 'b--')
 plt.legend(['W Previsto', 'b Previsto', 'W Real', 'b Real'])
 plt.show()
 
-# Plot do valor "real"
+# Real Value Plotting
 plt.scatter(X, y, label = "Valor Real")
 
-# Plot do valor "previsto" pelo nosso modelo
+# Predict Value Plotting
 plt.scatter(X, modelo(X), label = "Valor Previsto")
 
 plt.legend()
