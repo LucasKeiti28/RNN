@@ -65,7 +65,7 @@ x_teste = x_teste/255.0
 # Creating Model
 modelo = keras.Sequential(layers=[
     keras.layers.Flatten(input_shape = (28,28)),
-    keras.layers.Dense(128, activation="relu"),
+    keras.layers.Dense(228, activation="relu"),
     keras.layers.Dense(10, activation="softmax")
 ])
 
@@ -73,7 +73,7 @@ modelo = keras.Sequential(layers=[
 modelo.compile(optimizer = "adam", loss = "sparse_categorical_crossentropy", metrics = ["accuracy"])
 
 # Trainning model
-modelo.fit(x_treino, y_treino, batch_size = 60, epochs = 10, validation_split = 0.2)
+modelo.fit(x_treino, y_treino, batch_size = 60, epochs = 20, validation_split = 0.2)
 
 # Evaluated model
 loss, accuracy = modelo.evaluate(x_teste, y_teste)
@@ -87,7 +87,6 @@ preds = modelo.predict_classes(x_teste)
 
 # Getting some randomly images
 rand_idxs = np.random.permutation(len(x_teste))[:20]
-print(rand_idxs)
 
 # Plot das previaões
 plot(x_teste[rand_idxs], y_teste[rand_idxs], preds[rand_idxs])
