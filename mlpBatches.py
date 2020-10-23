@@ -59,6 +59,7 @@ for i, (batch_xs_treino, batch_ys_treino) in enumerate(dataset_treino.take(n_bat
         grads = tape.gradient(loss, modelo_v3.trainable_variables)
         processed_grads = [g for g in grads]
         grads_and_vars = zip(processed_grads, modelo_v3.trainable_variables)
+    # Optimization weights and bias
     optimizer.apply_gradients(grads_and_vars)
 
 print('\nTaxa de Erro final em Treino:', np.mean(loss.numpy()))
